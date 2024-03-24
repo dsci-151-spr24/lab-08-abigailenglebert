@@ -52,6 +52,7 @@ You can load them by running the following in your Console:
 library(tidyverse) 
 library(tidymodels)
 library(openintro)
+library(flextable)
 ```
 
 ## Data
@@ -134,7 +135,7 @@ score_bty_fit <- linear_reg() %>%
   set_engine("lm") %>%
   fit(score~bty_avg, data = evals)
 
-score_bty_fit %>% tidy()
+score_bty_fit %>% tidy() %>% flextable()
 ```
 
 5.  Recreate the scatterplot from Exercise 2, and add the regression line to this plot in orange colour, with shading for the uncertainty of the line turned off.
@@ -180,7 +181,7 @@ score_gender_fit <- linear_reg() %>%
   fit(score~gender, data = evals) %>%
   tidy()
 
-score_gender_fit
+score_gender_fit %>% flextable()
 ```
 10. What is the equation of the line corresponding to male professors?
     What is it for female professors?
@@ -205,7 +206,7 @@ score_rank_fit <- linear_reg() %>%
   fit(score~rank, data = evals) %>%
   tidy()
 
-score_rank_fit
+score_rank_fit %>% flextable()
 ```
 12. Create a new variable called `rank_relevel` where `"tenure track"` is the baseline level.
 
@@ -229,7 +230,7 @@ score_rank_relevel_fit <- linear_reg() %>%
   fit(score~rank_relevel, data = evals) %>%
   tidy()
 
-score_rank_relevel_fit
+score_rank_relevel_fit %>% flextable()
 ```
 
 14. Create another new variable called `tenure_eligible` that labels `"teaching"` faculty as `"no"` and labels `"tenure track"` and `"tenured"` faculty as `"yes"`.
